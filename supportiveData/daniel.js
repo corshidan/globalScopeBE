@@ -1,10 +1,11 @@
-const bootcamperTable = {
+const bootcamperTable = [{
 	firstname: 'Carmel Daniel',
 	lastname: 'Corseanschi',
 	bootcamperid: 10,
 	frequency: 3,
 	startdate: '2021-07-26',
-};
+},
+];
 const reflections = [
 	{
 		bootcamperid: 10,
