@@ -11,11 +11,13 @@ router.get('/', async (req, res) => {
 	});
 });
 router.post('/', async (req, res) => {
-	const { bootcamper } = req.body;
+	const bootcamper = req.body;
+	console.log(req.body);
 	const response = await addBootcamper(bootcamper);
+	console.table(response);
 	res.json({
 		success: true,
-		message: 'Bootcamper with name ' + bootcamper.name + 'was created successfully',
+		message: 'Bootcamper with name was created successfully',
 	});
 });
 
