@@ -13,7 +13,7 @@ const reflections = [
 		confidence: 4,
 		grateful: 'how awesome this course is',
 		improvements: 'complex types, computational thinking',
-		overallFeeling: 5,
+		overallfeeling: 5,
 	},
 	{
 		bootcamperid: 1,
@@ -28,7 +28,7 @@ const reflections = [
 		confidence: 2,
 		grateful: 'Liz Kaufman',
 		improvements: 'closures,currying',
-		overallFeeling: 3,
+		overallfeeling: 3,
 	},
 	{
 		bootcamperid: 1,
@@ -43,7 +43,7 @@ const reflections = [
 		confidence: 3,
 		grateful: 'the support given out',
 		improvements: 'generator functions,authentication',
-		overallFeeling: 3,
+		overallfeeling: 3,
 	},
 	{
 		bootcamperid: 1,
@@ -58,7 +58,7 @@ const reflections = [
 		confidence: 5,
 		grateful: 'being alive , the sun , water',
 		improvements: 'firebase, firing events',
-		overallFeeling: 5,
+		overallfeeling: 5,
 	},
 	{
 		bootcamperid: 2,

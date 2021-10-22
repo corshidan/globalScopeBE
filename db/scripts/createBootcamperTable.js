@@ -7,8 +7,8 @@ async function createBootcamperTable() {
     lastname VARCHAR(15),
     bootcamperid INTEGER UNIQUE NOT NULL,
     frequency INTEGER NOT NULL,
-    startdate DATE,
-    created DATE NOT NULL DEFAULT now()
+    startdate DATE NOT NULL,
+    created DATE NOT NULL DEFAULT CURRENT_DATE
      );
     `;
 

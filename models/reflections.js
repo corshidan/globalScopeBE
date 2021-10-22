@@ -25,7 +25,6 @@ async function getAllReflectionsByBootcamperId(id) {
 async function addReflection(reflection) {
 	const sqlString = `INSERT INTO reflections (bootcamperid,reflection,accessible,topics,confidence,grateful,improvements,overallfeeling) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *; `;
 	try {
-		console.log(typeof reflection.topics, reflection.topics);
 		const response = await query(sqlString, [
 			reflection.bootcamperid,
 			reflection.reflection,
