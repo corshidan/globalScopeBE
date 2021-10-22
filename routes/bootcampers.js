@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { getAllBootcampers, addBootcamper } = require('../models/bootcampers');
+const {
+	getAllBootcampers,
+	addBootcamper,
+	getBootcamperByDateCreated,
+} = require('../models/bootcampers');
 
 router.get('/', async (req, res) => {
 	const bootcampers = await getAllBootcampers();
@@ -10,9 +14,17 @@ router.get('/', async (req, res) => {
 		payload: bootcampers,
 	});
 });
+router.get('/:startdate', async (req, res) => {
+	const date = req.params.startdate;
+	const bootcampers = await getBootcamperByDateCreated(date);
+	res.json({
+		success: true,
+		message: 'Here are all the bootcampers',
+		payload: bootcampers,
+	});
+});
 router.post('/', async (req, res) => {
 	const bootcamper = req.body;
-	console.log(req.body);
 	const response = await addBootcamper(bootcamper);
 	console.table(response);
 	res.json({
