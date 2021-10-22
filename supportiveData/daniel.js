@@ -1,31 +1,69 @@
 const bootcamperTable = {
-	id: 'SERIAL_PRIMARY_KEY',
-	fullName: 'Daniel Corseanschi',
-	bootcamperId: 6666,
+	firstname: 'Carmel Daniel',
+	lastname: 'Corseanschi',
+	bootcamperId: 10,
 	frequency: 3,
 	courseStartDate: '26/07/2021',
 };
 const reflections = [
 	{
-		bootcamperId: 6666,
-		createdAt: '26/07/2021',
+		bootcamperId: 10,
 		reflection: `Really enjoyed the day, the vibe is good, high morale, we definitely need to work a bit more on the design of the project.    It feels like there is so much more to work on , maybe a bit overwhelming but slowly and with perseverance we keep going forward`,
+		accessible: true,
 		topicsPicked: [
 			{ topic: 'primitive types', rating: 4 },
 			{ topic: 'complex types', rating: 2 },
 			{ topic: 'pass by reference', rating: 3 },
 			{ topic: 'cognitive load', rating: 5 },
 		],
-		confidenceRating: 4,
-		gratefulFor: 'how awesome this course is',
-		areaOfImprovement: 'complex types, computational thinking',
+		confidence: 4,
+		grateful: 'how awesome this course is',
+		improvements: 'complex types, computational thinking',
+		overallFeeling: 5,
+	},
+	{
+		bootcamperId: 10,
+		reflection: `Another day went by learning loads of toads`,
+		accessible: true,
+		topicsPicked: [
+			{ topic: 'closures', rating: 1 },
+			{ topic: 'recursiveness', rating: 4 },
+			{ topic: 'OOP', rating: 3 },
+			{ topic: 'currying', rating: 1 },
+		],
+		confidence: 2,
+		grateful: 'Liz Kaufman',
+		improvements: 'closures,currying',
+		overallFeeling: 3,
+	},
+	{
+		bootcamperId: 10,
+		reflection: `Can't find anything else to add`,
+		accessible: true,
+		topicsPicked: [
+			{ topic: 'generator functions', rating: 1 },
+			{ topic: 'events', rating: 2 },
+			{ topic: 'authentication', rating: 1 },
+			{ topic: 'useReducer', rating: 4 },
+		],
+		confidence: 3,
+		grateful: 'the support given out',
+		improvements: 'generator functions,authentication',
+		overallFeeling: 3,
+	},
+	{
+		bootcamperId: 10,
+		reflection: `Not in the mood for reflecting`,
+		accessible: true,
+		topicsPicked: [
+			{ topic: 'firebase', rating: 1 },
+			{ topic: 's3 buckets', rating: 4 },
+			{ topic: 'serverless', rating: 2 },
+			{ topic: 'amplify', rating: 4 },
+		],
+		confidence: 5,
+		grateful: 'being alive , the sun , water',
+		improvements: 'firebase, firing events',
 		overallFeeling: 5,
 	},
 ];
-
-// const test = JSON.stringify(reflections[0].topicsPicked[0]);
-// const test2 = reflections[0].topicsPicked[0];
-// const test3 = JSON.parse(test);
-// console.log(test, typeof test, typeof test2);
-// console.log(reflections);
-//Nothing to see here
