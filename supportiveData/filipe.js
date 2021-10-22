@@ -6,8 +6,9 @@ const bootcamperTable = {
   startdate: '2021-04-09',
 }
 
-const reflections = {
- 
+const reflections = 
+
+{
   bootcamperid: 300,
   reflection: 'I cannot believe, today was a good day!',
   accessible: false,
