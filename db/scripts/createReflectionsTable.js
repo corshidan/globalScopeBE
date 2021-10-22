@@ -3,8 +3,8 @@ const { query } = require('../index');
 async function createReflectionsTable() {
 	const sqlString = `CREATE TABLE reflections  (
     id SERIAL PRIMARY KEY
-    bootcamperid INTEGER,
     created DATE DEFAULT CURRENT_DATE,
+    bootcamperid INTEGER,
     reflection TEXT,
     accessible BOOLEAN,
     topics TEXT[],

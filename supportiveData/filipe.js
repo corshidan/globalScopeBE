@@ -1,71 +1,71 @@
 const bootcamperTable = {
-  id: 'SERIAL PRIMARY KEY',
-  fullName: 'Filipe Proenca',
-  bootcamperId: 300,
+  firstname: 'Filipe',
+  lastname: 'Proenca',
+  bootcamperid: 300,
   frequency: 2,
-  createdAt: '09/04/2021',
+  startdate: '2021-04-09',
 }
 
 const reflections = {
-  bootcamperId: 300,
-  createdAt: '09/04/2021',
-  reflection: "I can't believe, today was a good day!",
-  isAccessible: false,
-  topicsPicked: [
+  created: '2021-04-09',
+  bootcamperid: 300,
+  reflection: 'I cannot believe, today was a good day!',
+  accessible: false,
+  topics: [
     { topic: 'React', rating: 0 },
     { topic: 'CSS', rating: 3 },
     { topic: 'HTML', rating: 4 },
   ],
-  confidenceRating: 5,
-  gratefulFor: 'health and wealth',
-  areaOfImprovement: 'Exercise more',
-  overallFeeling: 6,
+  confidence: 5,
+  grateful: 'health and wealth',
+  improvements: 'Exercise more',
+  overallfeeling: 6,
 }
 
 const reflections = {
-  bootcamperId: 300,
-  createdAt: '10/04/2021',
+  created: '10/04/2021',
+  bootcamperid: 300,
   reflection: 'The key is to make it',
-  isAccessible: false,
-  topicsPicked: [
+  accessible: false,
+  topics: [
     { topic: 'React', rating: 1 },
     { topic: 'TypeScript', rating: 2 },
     { topic: 'Javascript', rating: 4 },
   ],
-  confidenceRating: 5,
-  gratefulFor: 'relaxation',
-  areaOfImprovement: 'eat more donuts',
-  overallFeeling: 6,
+  confidence: 5,
+  grateful: 'relaxation',
+  improvements: 'eat more donuts',
+  overallfeeling: 6,
 }
 
 const reflections = {
-  bootcamperId: 300,
-  createdAt: '11/04/2021',
+  created: '11/04/2021',
+  bootcamperid: 300,
   reflection: 'Shake it off, tomorrow is a new day',
-  isAccessible: true,
-  topicsPicked: [
+  accessible: true,
+  topics: [
     { topic: 'React', rating: 3 },
     { topic: 'Tailwind', rating: 0 },
     { topic: 'Framer', rating: 0 },
   ],
-  confidenceRating: 5,
-  gratefulFor: 'self improvement',
-  areaOfImprovement: 'Better understand react',
-  overallFeeling: 5,
+  confidence: 5,
+  grateful: 'self improvement',
+  improvements: 'Better understand react',
+  overallfeeling: 5,
 }
 
 const reflections = {
-  bootcamperId: 300,
-  createdAt: '12/04/2021',
+  created: '12/04/2021',
+  bootcamperid: 300,
   reflection: 'Patience is key... keep pushing',
-  isAccessible: true,
-  topicsPicked: [
+  accessible: true,
+  topics: [
     { topic: 'React', rating: 4 },
     { topic: 'AWS', rating: 3 },
     { topic: 'Cypress', rating: 3 },
   ],
-  confidenceRating: 5,
-  gratefulFor: 'friends',
-  areaOfImprovement: 'Be more patient',
-  overallFeeling: 4,
+  confidence: 5,
+  grateful: 'friends',
+  improvements: 'Be more patient',
+  overallfeeling: 4,
 }
