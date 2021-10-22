@@ -1,11 +1,12 @@
 const { query } = require('../db/index');
+const removeTimeFromDate = require('../functions/dateFormat');
 
 async function getAllReflections() {
 	const sqlString = `SELECT * FROM reflections;`;
 	try {
-		const response = await query(sqlString);
-		console.log(response.command);
-		return fixData(response.rows);
+		const { rows: data, command } = await query(sqlString);
+		console.log(command);
+		return fixData(data);
 	} catch (err) {
 		console.error(err);
 	}
@@ -44,12 +45,9 @@ async function addReflection(reflection) {
 }
 function fixData(array) {
 	return array.map((item) => {
-		const freshItem = { ...item };
-		freshItem.topics = fixTopics(item.topics);
-		return freshItem;
+		item.created = removeTimeFromDate(item.created.toISOString());
+		item.topics = item.topics.map((item) => JSON.parse(item));
+		return item;
 	});
-}
-function fixTopics(array) {
-	return array.map((item) => JSON.parse(item));
 }
 module.exports = { getAllReflections, addReflection, getAllReflectionsByBootcamperId };

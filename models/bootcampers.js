@@ -1,22 +1,41 @@
 const { query } = require('../db/index');
-
+const removeTimeFromDate = require('../functions/dateFormat');
 async function getAllBootcampers() {
 	const sqlString = `SELECT * FROM bootcampers;`;
 	try {
-		const response = await query(sqlString);
-		console.log(response.command);
-		return response.rows;
+		const { rows: data, command } = await query(sqlString);
+		console.log(command);
+		// console.log(data);
+		return data.map((item) => {
+			// console.log(item.startdate instanceof Date, Object.keys(item.startdate));
+			// console.log(item.startdate.getDate());
+
+			return {
+				...item,
+				startdate: removeTimeFromDate(item.startdate.toISOString()),
+				created: removeTimeFromDate(item.created.toISOString()),
+			};
+		});
 	} catch (err) {
 		console.error(err);
 	}
 }
 
 async function getBootcamperByDateCreated(date) {
-	console.log(typeof date);
-	const sqlString = `SELECT date(startdate) FROM bootcampers WHERE startdate::date = '${date}' ;`;
-	const response = await query(sqlString);
-	console.log(response.rows[0]);
-	return response.rows;
+	const sqlString = `SELECT * FROM bootcampers WHERE startdate = $1;`;
+	try {
+		const { rows: data, command } = await query(sqlString, [date]);
+		console.log(command + ' ' + data[0].firstname + ' ' + data[0].lastname);
+		return data.map((item) => {
+			return {
+				...item,
+				startdate: removeTimeFromDate(item.startdate.toISOString()),
+				created: removeTimeFromDate(item.created.toISOString()),
+			};
+		});
+	} catch (err) {
+		console.error(err);
+	}
 }
 
 async function addBootcamper(bootcamper) {
