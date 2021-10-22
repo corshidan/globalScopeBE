@@ -11,6 +11,8 @@
 		"deleteBootcamperTable": "node -r dotenv/config ./db/scripts/deleteBootcamperTable.js",
 		"createReflectionsTable": "node -r dotenv/config ./db/scripts/createReflectionsTable.js",
 		"deleteReflectionsTable": "node -r dotenv/config ./db/scripts/deleteReflectionsTable.js",
+		"populateBootcamperTable": "node -r dotenv/config ./db/scripts/populateBootcamperTable.js",
+		"populateReflectionsTable": "node -r dotenv/config ./db/scripts/populateReflectionsTable.js",
 		"reset": "node -r dotenv/config ./db/scripts/deleteReflectionsTable.js && node -r dotenv/config ./db/scripts/deleteBootcamperTable.js && node -r dotenv/config ./db/scripts/createBootcamperTable.js && node -r dotenv/config ./db/scripts/createReflectionsTable.js",
 		"testing": "node -r dotenv/config ./db/scripts/test.js"
 	},

@@ -1,15 +1,22 @@
 const { query } = require('../db/index');
+
 async function getAllReflections() {
 	const sqlString = `SELECT * FROM reflections;`;
 	try {
 		const response = await query(sqlString);
 		console.log(response.command);
-		const data = response.rows.map((item) => {
-			const freshItem = { ...item };
-			freshItem.topics = fixTopics(item.topics);
-			return freshItem;
-		});
-		return data;
+		return fixData(response.rows);
+	} catch (err) {
+		console.error(err);
+	}
+}
+
+async function getAllReflectionsByBootcamperId(id) {
+	const sqlString = `SELECT * FROM reflections WHERE bootcamperId=$1;`;
+	try {
+		const response = await query(sqlString, [id]);
+		console.log(response.command);
+		return fixData(response.rows);
 	} catch (err) {
 		console.error(err);
 	}
@@ -36,8 +43,14 @@ async function addReflection(reflection) {
 		console.error(err);
 	}
 }
-
+function fixData(array) {
+	return array.map((item) => {
+		const freshItem = { ...item };
+		freshItem.topics = fixTopics(item.topics);
+		return freshItem;
+	});
+}
 function fixTopics(array) {
 	return array.map((item) => JSON.parse(item));
 }
-module.exports = { getAllReflections, addReflection };
+module.exports = { getAllReflections, addReflection, getAllReflectionsByBootcamperId };

@@ -1,6 +1,6 @@
 const reflections = [
 	{
-		bootcamperid: 10,
+		bootcamperid: 1,
 		reflection:
 			'Really enjoyed the day, the vibe is good, high morale, we definitely need to work a bit more on the design of the project.    It feels like there is so much more to work on , maybe a bit overwhelming but slowly and with perseverance we keep going forward',
 		accessible: true,
@@ -16,7 +16,7 @@ const reflections = [
 		overallFeeling: 5,
 	},
 	{
-		bootcamperid: 10,
+		bootcamperid: 1,
 		reflection: 'Another day went by learning loads of toads',
 		accessible: true,
 		topics: [
@@ -31,7 +31,7 @@ const reflections = [
 		overallFeeling: 3,
 	},
 	{
-		bootcamperid: 10,
+		bootcamperid: 1,
 		reflection: 'Cannot find anything else to add',
 		accessible: true,
 		topics: [
@@ -46,7 +46,7 @@ const reflections = [
 		overallFeeling: 3,
 	},
 	{
-		bootcamperid: 10,
+		bootcamperid: 1,
 		reflection: 'Not in the mood for reflecting',
 		accessible: true,
 		topics: [
@@ -61,7 +61,7 @@ const reflections = [
 		overallFeeling: 5,
 	},
 	{
-		bootcamperid: 1234,
+		bootcamperid: 2,
 		reflection:
 			'Today was very rushed. My internet went down in the middle of fat-arrow functions. The retro was good! Writing the 10 second intro was hard! I met my mentor today which was great! I have spent far too long after work trying to make a function that takes an array as a parameter. As such I am writing my reflection at 1.40am, which is daft.',
 		accessible: false,
@@ -78,7 +78,7 @@ const reflections = [
 		overallfeeling: 5,
 	},
 	{
-		bootcamperid: 1234,
+		bootcamperid: 2,
 		reflection:
 			'It’s been very easy to get lost when navigating several different tables or linking the same table to itself. Using ALIAS is also confusing as the variables can be declared after they are used!',
 		accessible: false,
@@ -94,7 +94,7 @@ const reflections = [
 		overallfeeling: 4,
 	},
 	{
-		bootcamperid: 1234,
+		bootcamperid: 2,
 		reflection:
 			'Today was really interesting, researching node-postgres via the docs, and then using this to create a server that can make requests to a database. I can see the benefit of looking through the docs thoroughly, but I think the skill will be searching the docs efficiently to find the key parts of the package that will actually be of use, as we ended up spending too much time reading the docs and didn’t complete many tasks in time.',
 		accessible: true,
@@ -110,7 +110,7 @@ const reflections = [
 		overallfeeling: 5,
 	},
 	{
-		bootcamperid: 1234,
+		bootcamperid: 2,
 		reflection:
 			'There was a lot to learn today, and I understood it when we were going through it in the lessons, but in the workshops I couldn’t remember any of the steps and got lost for most of it. Really need to practise!',
 		accessible: true,
@@ -126,7 +126,7 @@ const reflections = [
 		overallfeeling: 3,
 	},
 	{
-		bootcamperid: 300,
+		bootcamperid: 3,
 		reflection: 'I cannot believe, today was a good day!',
 		accessible: false,
 		topics: [
@@ -140,7 +140,7 @@ const reflections = [
 		overallfeeling: 6,
 	},
 	{
-		bootcamperid: 300,
+		bootcamperid: 3,
 		reflection: 'The key is to make it',
 		accessible: false,
 		topics: [
@@ -154,7 +154,7 @@ const reflections = [
 		overallfeeling: 6,
 	},
 	{
-		bootcamperid: 300,
+		bootcamperid: 3,
 		reflection: 'Shake it off, tomorrow is a new day',
 		accessible: true,
 		topics: [
@@ -168,7 +168,7 @@ const reflections = [
 		overallfeeling: 5,
 	},
 	{
-		bootcamperid: 300,
+		bootcamperid: 3,
 		reflection: 'Patience is key... keep pushing',
 		accessible: true,
 		topics: [
@@ -182,7 +182,7 @@ const reflections = [
 		overallfeeling: 4,
 	},
 	{
-		bootcamperid: 300,
+		bootcamperid: 3,
 		reflection: 'Patience is key... keep pushing',
 		accessible: true,
 		topics: [
@@ -195,4 +195,43 @@ const reflections = [
 		improvements: 'Be more patient',
 		overallfeeling: 4,
 	},
+	{
+		bootcamperid: 4,
+		reflection:
+			'Today we looked at objects, arrays and loops. Think of objects as a box of things while arrays are like an itemised list. Need to practice more. More comfortable with loops today.',
+		accessible: false,
+		topics: [
+			{ topic: 'objects', rating: 2 },
+			{ topic: 'arrays', rating: 3 },
+			{ topic: 'loops', rating: 4 },
+		],
+		confidence: 3,
+		grateful: 'pair programming',
+		improvements: 'objects and arrays',
+		overallfeeling: 4,
+	},
+	{
+		bootcamperid: 4,
+		reflection:
+			'Today was our first hackathon. It was challenging to get the task completed in time. Also, we worked in a group of three which was a bit different to before. Was good to try and build something even though we did not complete it',
+		accessible: true,
+		topics: [{ topic: 'DOM', rating: 3 }],
+		confidence: 3,
+		grateful: 'support from coaches',
+		improvements: 'planning',
+		overallfeeling: 3,
+	},
+	{
+		bootcamperid: 4,
+		reflection:
+			'We looked at asychronous code which was interesting. I think I have got an understadning of how things move through the call stack ',
+		accessible: true,
+		topics: [{ topic: 'async code', rating: 4 }],
+		confidence: 3,
+		grateful: 'energisers',
+		improvements: 'just need to practice',
+		overallfeeling: 4,
+	},
 ];
+
+module.exports = reflections;
