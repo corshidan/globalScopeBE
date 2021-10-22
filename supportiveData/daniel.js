@@ -1,16 +1,16 @@
 const bootcamperTable = {
 	firstname: 'Carmel Daniel',
 	lastname: 'Corseanschi',
-	bootcamperId: 10,
+	bootcamperid: 10,
 	frequency: 3,
-	courseStartDate: '26/07/2021',
+	startdate: '2021-07-26',
 };
 const reflections = [
 	{
-		bootcamperId: 10,
-		reflection: `Really enjoyed the day, the vibe is good, high morale, we definitely need to work a bit more on the design of the project.    It feels like there is so much more to work on , maybe a bit overwhelming but slowly and with perseverance we keep going forward`,
+		bootcamperid: 10,
+		reflection: 'Really enjoyed the day, the vibe is good, high morale, we definitely need to work a bit more on the design of the project.    It feels like there is so much more to work on , maybe a bit overwhelming but slowly and with perseverance we keep going forward',
 		accessible: true,
-		topicsPicked: [
+		topics: [
 			{ topic: 'primitive types', rating: 4 },
 			{ topic: 'complex types', rating: 2 },
 			{ topic: 'pass by reference', rating: 3 },
@@ -22,10 +22,10 @@ const reflections = [
 		overallFeeling: 5,
 	},
 	{
-		bootcamperId: 10,
-		reflection: `Another day went by learning loads of toads`,
+		bootcamperid: 10,
+		reflection: 'Another day went by learning loads of toads',
 		accessible: true,
-		topicsPicked: [
+		topics: [
 			{ topic: 'closures', rating: 1 },
 			{ topic: 'recursiveness', rating: 4 },
 			{ topic: 'OOP', rating: 3 },
@@ -37,10 +37,10 @@ const reflections = [
 		overallFeeling: 3,
 	},
 	{
-		bootcamperId: 10,
-		reflection: `Can't find anything else to add`,
+		bootcamperid: 10,
+		reflection: 'Cannot find anything else to add',
 		accessible: true,
-		topicsPicked: [
+		topics: [
 			{ topic: 'generator functions', rating: 1 },
 			{ topic: 'events', rating: 2 },
 			{ topic: 'authentication', rating: 1 },
@@ -52,10 +52,10 @@ const reflections = [
 		overallFeeling: 3,
 	},
 	{
-		bootcamperId: 10,
-		reflection: `Not in the mood for reflecting`,
+		bootcamperid: 10,
+		reflection: 'Not in the mood for reflecting',
 		accessible: true,
-		topicsPicked: [
+		topics: [
 			{ topic: 'firebase', rating: 1 },
 			{ topic: 's3 buckets', rating: 4 },
 			{ topic: 'serverless', rating: 2 },

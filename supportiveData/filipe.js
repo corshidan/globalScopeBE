@@ -7,7 +7,7 @@ const bootcamperTable = {
 }
 
 const reflections = {
-  created: '2021-04-09',
+ 
   bootcamperid: 300,
   reflection: 'I cannot believe, today was a good day!',
   accessible: false,
@@ -23,7 +23,7 @@ const reflections = {
 }
 
 const reflections = {
-  created: '2021-04-10',
+  
   bootcamperid: 300,
   reflection: 'The key is to make it',
   accessible: false,
@@ -39,7 +39,7 @@ const reflections = {
 }
 
 const reflections = {
-  created: '2021-04-11',
+  
   bootcamperid: 300,
   reflection: 'Shake it off, tomorrow is a new day',
   accessible: true,
@@ -55,7 +55,7 @@ const reflections = {
 }
 
 const reflections = {
-  created: '2021-04-12',
+  
   bootcamperid: 300,
   reflection: 'Patience is key... keep pushing',
   accessible: true,
