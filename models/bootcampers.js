@@ -12,8 +12,9 @@ async function getAllBootcampers() {
 }
 
 async function addBootcamper(bootcamper) {
-	const sqlString = `INSERT INTO bootcampers (firstname,lastname,bootcamperid,frequency) VALUES ($1',$2,$3,$4)`;
+	const sqlString = `INSERT INTO bootcampers (firstname,lastname,bootcamperid,frequency) VALUES ($1,$2,$3,$4) RETURNING *;`;
 	try {
+		console.log('from add bootcamper function first', bootcamper);
 		const response = await query(sqlString, [
 			bootcamper.firstname,
 			bootcamper.lastname,
@@ -21,10 +22,11 @@ async function addBootcamper(bootcamper) {
 			bootcamper.frequency,
 		]);
 		console.log(response.command);
+		console.log('from addBootcamper function', response);
 		return response.rows;
 	} catch (err) {
 		console.error(err);
 	}
 }
 
-module.exports = { getAllBootcampers };
+module.exports = { getAllBootcampers, addBootcamper };
