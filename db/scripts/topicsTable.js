@@ -1,4 +1,30 @@
-const topics = ['javascript', 'closures', 'currying', 'recursiveness'];
+const topics = [
+	'javascript',
+	'closures',
+	'currying',
+	'recursiveness',
+	'html',
+	'object oriented programming',
+	'css',
+	'objects',
+	'arrays',
+	'functions',
+	'methods',
+	'react',
+	'libraries',
+	'npm',
+	'package',
+	'useReducer',
+	'callbacks',
+	'strings',
+	'flexbox',
+	'events',
+	'sockets',
+	'require',
+	'random',
+	'router',
+	'runtime',
+];
 const { query } = require('../index');
 
 function createTopicsTable() {
@@ -24,7 +50,7 @@ function deleteTopicsTable() {
 		.catch((err) => console.log(err.message));
 }
 // createTopicsTable();
-// topics.forEach((topic) => {
-// 	populateTopics(topic);
-// });
+topics.forEach((topic) => {
+	populateTopics(topic);
+});
 // deleteTopicsTable();

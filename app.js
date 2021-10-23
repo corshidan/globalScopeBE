@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const bootcamperRouter = require('./routes/bootcampers');
 const reflectionRouter = require('./routes/relfections');
+const topicsRouter = require('./routes/topics');
 
 // Middlewares
 app.use(cors({ origin: '*' }));
@@ -14,6 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/bootcampers', bootcamperRouter);
 app.use('/reflections', reflectionRouter);
+app.use('/topics', topicsRouter);
 
 app.get('/', (req, res) => {
 	res.json({
