@@ -5,10 +5,7 @@ async function getAllBootcampers() {
 	try {
 		const { rows: data, command } = await query(sqlString);
 		console.log(command);
-		// console.log(data);
 		return data.map((item) => {
-			// console.log(item.startdate instanceof Date, Object.keys(item.startdate));
-			// console.log(item.startdate.getDate());
 
 			return {
 				...item,
