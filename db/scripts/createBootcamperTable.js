@@ -5,8 +5,9 @@ async function createBootcamperTable() {
     id SERIAL PRIMARY KEY,
     firstname VARCHAR(15),
     lastname VARCHAR(15),
-    bootcamperid INTEGER UNIQUE NOT NULL,
+    email VARCHAR(30),
     frequency INTEGER NOT NULL,
+    bootcamperid INTEGER UNIQUE NOT NULL,
     startdate DATE NOT NULL,
     created DATE NOT NULL DEFAULT CURRENT_DATE
      );
