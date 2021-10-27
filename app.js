@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 const bootcamperRouter = require('./routes/bootcampers');
 const reflectionRouter = require('./routes/relfections');
 const topicsRouter = require('./routes/topics');
+const loginRouter = require('./routes/login');
 
 // Middlewares
 app.use(cors({ origin: '*' }));
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/bootcampers', bootcamperRouter);
 app.use('/reflections', reflectionRouter);
 app.use('/topics', topicsRouter);
+app.use('/login', loginRouter);
 
 app.get('/', (req, res) => {
 	res.json({
