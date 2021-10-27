@@ -6,7 +6,6 @@ async function getAllBootcampers() {
 		const { rows: data, command } = await query(sqlString);
 		console.log(command);
 		return data.map((item) => {
-
 			return {
 				...item,
 				startdate: removeTimeFromDate(item.startdate.toISOString()),
@@ -36,11 +35,13 @@ async function getBootcamperByDateCreated(date) {
 }
 
 async function addBootcamper(bootcamper) {
-	const sqlString = `INSERT INTO bootcampers (firstname,lastname,bootcamperid,frequency,startdate) VALUES ($1,$2,$3,$4,$5) RETURNING *;`;
+	const sqlString = `INSERT INTO bootcampers (firstname,lastname,email,password,bootcamperid,frequency,startdate) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *;`;
 	try {
 		const response = await query(sqlString, [
 			bootcamper.firstname,
 			bootcamper.lastname,
+			bootcamper.email,
+			bootcamper.password,
 			bootcamper.bootcamperid,
 			bootcamper.frequency,
 			bootcamper.startdate,

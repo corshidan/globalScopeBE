@@ -6,6 +6,7 @@ async function createBootcamperTable() {
     firstname VARCHAR(15),
     lastname VARCHAR(15),
     email VARCHAR(30),
+    password VARCHAR(20),
     frequency INTEGER NOT NULL,
     bootcamperid INTEGER UNIQUE NOT NULL,
     startdate DATE NOT NULL,
