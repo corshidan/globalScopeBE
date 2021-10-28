@@ -25,6 +25,19 @@ router.get('/:bootcamperId', async (req, res) => {
 	});
 });
 
+// airportRouter.get("/", async function (req, res) {
+//   const { code } = req.query;
+//   if (code) {
+//     const data = await getAirportLocation(code);
+//     // res.json what we get back
+//     res.json({
+//       success: true,
+//       message: `Here is the aiport with the code: ${code.toUpperCase()} `,
+//       payload: data,
+//     });
+//     return;
+//   }
+
 router.post('/', async (req, res) => {
 	const reflection = req.body;
 	const response = await addReflection(reflection);
