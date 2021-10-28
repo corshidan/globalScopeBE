@@ -22,7 +22,16 @@ async function getAllReflectionsByBootcamperId(id) {
 		console.error(err);
 	}
 }
-
+async function getReflectionByDate(date, id) {
+	const sqlString = `SELECT * FROM reflections WHERE created=$1 AND id=$2;`;
+	try {
+		const response = await query(sqlString, [date, id]);
+		console.log(response.command);
+		return fixData(response.rows);
+	} catch (err) {
+		console.error(err);
+	}
+}
 async function addReflection(reflection) {
 	const sqlString = `INSERT INTO reflections (bootcamperid,reflection,accessible,topics,confidence,grateful,improvements,overallfeeling) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *; `;
 	try {
@@ -50,4 +59,9 @@ function fixData(array) {
 		return item;
 	});
 }
-module.exports = { getAllReflections, addReflection, getAllReflectionsByBootcamperId };
+module.exports = {
+	getAllReflections,
+	addReflection,
+	getAllReflectionsByBootcamperId,
+	getReflectionByDate,
+};
