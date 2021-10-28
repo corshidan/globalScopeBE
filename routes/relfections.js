@@ -9,10 +9,8 @@ const {
 
 router.get('/', async (req, res) => {
 	const { date, id } = req.query;
-	console.log('from reflection route line 12 ', date, id);
 	if (date && id) {
 		const reflection = await getReflectionByDate(date, id);
-		console.log('from route reflection line 14', reflection);
 		if (reflection.length < 1) {
 			res.status(404).json({ message: 'There is no reflection on this date !' });
 			return;
@@ -28,7 +26,7 @@ router.get('/', async (req, res) => {
 	const reflections = await getAllReflections();
 	res.json({
 		success: true,
-		message: 'Here are all the reflections',
+		message: 'Here are all the ',
 		payload: reflections,
 	});
 });
