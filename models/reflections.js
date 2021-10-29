@@ -13,7 +13,7 @@ async function getAllReflections() {
 }
 
 async function getAllReflectionsByBootcamperId(id) {
-	const sqlString = `SELECT * FROM reflections WHERE bootcamperId=$1;`;
+	const sqlString = `SELECT * FROM reflections WHERE bootcamperid=$1;`;
 	try {
 		const response = await query(sqlString, [id]);
 		console.log(response.command);
@@ -23,7 +23,7 @@ async function getAllReflectionsByBootcamperId(id) {
 	}
 }
 async function getReflectionByDate(date, id) {
-	const sqlString = `SELECT * FROM reflections WHERE created=$1 AND id=$2;`;
+	const sqlString = `SELECT * FROM reflections WHERE created=$1 AND bootcamperid=$2;`;
 	try {
 		const response = await query(sqlString, [date, id]);
 		console.log(response.command);
