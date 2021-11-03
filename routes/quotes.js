@@ -50,7 +50,6 @@ const quotes = [
 	"It's better to dance than to march through life.",
 	'If you chase two rabbits, you catch none.',
 	'A mentor is someone who sees more talent and ability within you, than you see in yourself, and helps bring it out of you.',
-	'Opportunities multiply as they are seized.',
 	"It doesn't matter if the glass is half empty or half full. Be grateful you have a glass - you're the only person that can decide what's in it.",
 	'It is your attitude, not your aptitude, that determines your altitude.',
 	'No amount of regretting can change the past, and no amount of worrying can change the future.',
