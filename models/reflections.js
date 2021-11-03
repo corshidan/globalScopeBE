@@ -52,6 +52,16 @@ async function addReflection(reflection) {
 		console.error(err);
 	}
 }
+async function deleteReflection(bootcamperid, date) {
+	const sqlString = `DELETE FROM reflections WHERE bootcamperid=$1 AND created=$2 RETURNING *; `;
+	try {
+		const response = await query(sqlString, [bootcamperid, date]);
+		console.log(response.command);
+		return response.rows;
+	} catch (err) {
+		console.error(err);
+	}
+}
 function fixData(array) {
 	return array.map((item) => {
 		item.created = removeTimeFromDate(item.created.toISOString());
@@ -61,7 +71,8 @@ function fixData(array) {
 }
 module.exports = {
 	getAllReflections,
-	addReflection,
 	getAllReflectionsByBootcamperId,
 	getReflectionByDate,
+	addReflection,
+	deleteReflection,
 };

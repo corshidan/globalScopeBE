@@ -5,6 +5,7 @@ const {
 	addReflection,
 	getAllReflectionsByBootcamperId,
 	getReflectionByDate,
+	deleteReflection,
 } = require('../models/reflections');
 
 router.get('/', async (req, res) => {
@@ -41,19 +42,6 @@ router.get('/:bootcamperId', async (req, res) => {
 	});
 });
 
-// airportRouter.get("/", async function (req, res) {
-//   const { code } = req.query;
-//   if (code) {
-//     const data = await getAirportLocation(code);
-//     // res.json what we get back
-//     res.json({
-//       success: true,
-//       message: `Here is the aiport with the code: ${code.toUpperCase()} `,
-//       payload: data,
-//     });
-//     return;
-//   }
-
 router.post('/', async (req, res) => {
 	const reflection = req.body;
 	const response = await addReflection(reflection);
@@ -61,6 +49,15 @@ router.post('/', async (req, res) => {
 	res.json({
 		success: true,
 		message: 'Added reflection',
+	});
+});
+router.delete('/:bootcamperId', async (req, res) => {
+	const id = req.params.bootcamperId;
+	const { date } = req.query;
+	const response = await deleteReflection(id, date);
+	res.json({
+		success: true,
+		message: 'Reflection deleted',
 	});
 });
 module.exports = router;
