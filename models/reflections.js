@@ -5,7 +5,7 @@ async function getAllReflections() {
 	const sqlString = `SELECT * FROM reflections;`;
 	try {
 		const { rows: data, command } = await query(sqlString);
-		console.log(command, data);
+		console.log(command);
 		return fixData(data);
 	} catch (err) {
 		console.error(err);
@@ -54,7 +54,6 @@ async function addReflection(reflection) {
 }
 function fixData(array) {
 	return array.map((item) => {
-		console.log('from fix data', item);
 		item.created = removeTimeFromDate(item.created.toISOString());
 		item.topics = item.topics.map((item) => JSON.parse(item));
 		return item;
