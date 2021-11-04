@@ -7,6 +7,23 @@ const {
 } = require('../models/bootcampers');
 
 router.get('/', async (req, res) => {
+	const { admin } = req.query;
+	if (admin) {
+		const bootcampers = await getAllBootcampers();
+		const filteredDataForAdmin = bootcampers.map((bootcamper) => {
+			return {
+				firstname: bootcamper.firstname,
+				lastname: bootcamper.lastname,
+				email: bootcamper.email,
+			};
+		});
+		res.json({
+			success: true,
+			message: 'Here are all the bootcampers',
+			payload: filteredDataForAdmin,
+		});
+		return;
+	}
 	const bootcampers = await getAllBootcampers();
 	res.json({
 		success: true,
