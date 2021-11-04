@@ -23,11 +23,14 @@ async function getAllReflectionsByBootcamperId(id) {
 	}
 }
 async function getAllReflectionsForAdmins() {
-	const sqlString = `SELECT r.created,r.bootcamperid,reflection,topics,confidence,grateful,improvements,overallfeeling,firstname,lastname,email FROM reflections AS r RIGHT JOIN bootcampers AS b ON r.bootcamperid = b.bootcamperid WHERE private=$1;`;
+	const sqlString = `SELECT r.created,r.bootcamperid,reflection,topics,confidence,grateful,improvements,overallfeeling,firstname,lastname,email,startdate FROM reflections AS r RIGHT JOIN bootcampers AS b ON r.bootcamperid = b.bootcamperid WHERE private=$1;`;
 	try {
 		const response = await query(sqlString, [false]);
 		console.log(response.command);
-		return fixData(response.rows);
+		return fixData(response.rows).map((item) => {
+			item.startdate = removeTimeFromDate(item.startdate.toISOString());
+			return item;
+		});
 	} catch (err) {
 		console.error(err);
 	}
