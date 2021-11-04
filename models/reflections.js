@@ -2,7 +2,7 @@ const { query } = require('../db/index');
 const removeTimeFromDate = require('../functions/dateFormat');
 
 async function getAllReflections() {
-	const sqlString = `SELECT * FROM reflections;`;
+	const sqlString = `SELECT * FROM reflections ;`;
 	try {
 		const { rows: data, command } = await query(sqlString);
 		console.log(command);
@@ -16,6 +16,16 @@ async function getAllReflectionsByBootcamperId(id) {
 	const sqlString = `SELECT * FROM reflections WHERE bootcamperid=$1;`;
 	try {
 		const response = await query(sqlString, [id]);
+		console.log(response.command);
+		return fixData(response.rows);
+	} catch (err) {
+		console.error(err);
+	}
+}
+async function getAllReflectionsForAdmins() {
+	const sqlString = `SELECT r.created,r.bootcamperid,reflection,topics,confidence,grateful,improvements,overallfeeling,firstname,lastname,email FROM reflections AS r RIGHT JOIN bootcampers AS b ON r.bootcamperid = b.bootcamperid WHERE private=$1;`;
+	try {
+		const response = await query(sqlString, [false]);
 		console.log(response.command);
 		return fixData(response.rows);
 	} catch (err) {
@@ -74,5 +84,6 @@ module.exports = {
 	getAllReflectionsByBootcamperId,
 	getReflectionByDate,
 	addReflection,
+	getAllReflectionsForAdmins,
 	deleteReflection,
 };

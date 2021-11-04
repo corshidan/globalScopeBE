@@ -6,10 +6,11 @@ const {
 	getAllReflectionsByBootcamperId,
 	getReflectionByDate,
 	deleteReflection,
+	getAllReflectionsForAdmins,
 } = require('../models/reflections');
 
 router.get('/', async (req, res) => {
-	const { date, id } = req.query;
+	const { date, id, admin } = req.query;
 	if (date && id) {
 		const reflection = await getReflectionByDate(date, id);
 		if (reflection.length < 1) {
@@ -20,6 +21,15 @@ router.get('/', async (req, res) => {
 			success: true,
 			message: ' Reflection queried by date',
 			payload: reflection,
+		});
+		return;
+	}
+	if (admin) {
+		const reflectionsArray = await getAllReflectionsForAdmins();
+		res.json({
+			success: true,
+			message: ' Reflection queried by date',
+			payload: reflectionsArray,
 		});
 		return;
 	}
