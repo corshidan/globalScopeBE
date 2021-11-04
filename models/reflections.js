@@ -33,12 +33,12 @@ async function getReflectionByDate(date, id) {
 	}
 }
 async function addReflection(reflection) {
-	const sqlString = `INSERT INTO reflections (bootcamperid,reflection,accessible,topics,confidence,grateful,improvements,overallfeeling) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *; `;
+	const sqlString = `INSERT INTO reflections (bootcamperid,reflection,private,topics,confidence,grateful,improvements,overallfeeling) VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *; `;
 	try {
 		const response = await query(sqlString, [
 			reflection.bootcamperid,
 			reflection.reflection,
-			reflection.accessible,
+			reflection.private,
 			reflection.topics,
 			reflection.confidence,
 			reflection.grateful,
