@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 				firstname: bootcamper.firstname,
 				lastname: bootcamper.lastname,
 				email: bootcamper.email,
+				bootcamperId: bootcamper.bootcamperid,
 			};
 		});
 		res.json({
