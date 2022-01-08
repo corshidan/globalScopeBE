@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const {
 	getAllReflections,
-	addReflection,
 	getAllReflectionsByBootcamperId,
-	getReflectionByDate,
-	deleteReflection,
 	getAllReflectionsForAdmins,
+	getReflectionByDate,
+	addReflection,
+	deleteReflection,
 } = require('../models/reflections');
 
 router.get('/', async (req, res) => {
@@ -37,7 +37,7 @@ router.get('/', async (req, res) => {
 	const reflections = await getAllReflections();
 	res.json({
 		success: true,
-		message: 'Here are all the ',
+		message: 'Here are all the reflections',
 		payload: reflections,
 	});
 });

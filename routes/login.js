@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { findBootcamper } = require('../models/login');
+const bcrypt = require('bcrypt');
 
 router.post('/', async (req, res) => {
 	const loginInfo = req.body;

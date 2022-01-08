@@ -5,6 +5,7 @@ const {
 	addBootcamper,
 	getBootcamperByDateCreated,
 } = require('../models/bootcampers');
+const bcrypt = require('bcrypt');
 
 router.get('/', async (req, res) => {
 	const { admin } = req.query;
@@ -41,14 +42,18 @@ router.get('/:startdate', async (req, res) => {
 		payload: bootcampers,
 	});
 });
+
 router.post('/', async (req, res) => {
 	const bootcamper = req.body;
-	const response = await addBootcamper(bootcamper);
-	console.table(response);
-	res.json({
-		success: true,
-		message: 'Bootcamper with name was created successfully',
-	});
+	const hashedPassword = await bcrypt.hash(bootcamper.password, 10);
+	try {
+		const response = await addBootcamper({ ...bootcamper, password: hashedPassword });
+		console.log(response);
+		res.json({
+			success: true,
+			message: 'Bootcamper was created successfully',
+		});
+	} catch {}
 });
 
 module.exports = router;

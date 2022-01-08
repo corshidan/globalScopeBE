@@ -1,7 +1,7 @@
 const { query } = require('../index');
 
 async function alterTable() {
-	const sqlString = `ALTER TABLE reflections RENAME COLUMN accessible TO private ;`;
+	const sqlString = `ALTER TABLE bootcampers ALTER COLUMN password TYPE VARCHAR(150) ;`;
 
 	try {
 		const res = await query(sqlString);
