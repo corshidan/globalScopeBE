@@ -6,6 +6,7 @@ async function findBootcamper(bootcamper) {
 	try {
 		const { rows: data, command } = await query(sqlString, [bootcamper.email]);
 		console.log(command);
+		if (data.length === 0) return [];
 		if (await bcrypt.compare(bootcamper.password, data[0].password)) {
 			return data.map((item) => {
 				return {

@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
 	const response = await findBootcamper(loginInfo);
 
 	if (response.length < 1) {
-		res.status(403).json({
+		res.status(404).json({
 			success: true,
 			message: 'No entries found',
 		});
