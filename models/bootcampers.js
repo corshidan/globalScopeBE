@@ -35,7 +35,7 @@ async function getBootcamperByDateCreated(date) {
 }
 
 async function addBootcamper(bootcamper) {
-	const sqlString = `INSERT INTO bootcampers (firstname,lastname,email,password,bootcamperid,frequency,startdate) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *;`;
+	const sqlString = `INSERT INTO bootcampers (firstname,lastname,email,password,bootcamperid,frequency,startdate) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING id;`;
 	try {
 		const response = await query(sqlString, [
 			bootcamper.firstname,
@@ -47,7 +47,8 @@ async function addBootcamper(bootcamper) {
 			bootcamper.startdate,
 		]);
 		console.log(response.command);
-		return response.rows;
+		console.log(response.rows[0]);
+		return response.rows[0];
 	} catch (err) {
 		console.error(err);
 	}
