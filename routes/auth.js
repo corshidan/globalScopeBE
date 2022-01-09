@@ -2,9 +2,12 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { query } = require('../db/index');
 const { addBootcamper } = require('../models/bootcampers');
-const jwtGenerator = require('../functions/jwtGenerator');
+const jwtGenerator = require('../utils/jwtGenerator');
+const authorize = require('../middleware/authorize');
 
-router.get('/', async (req, res) => {});
+router.get('/', async (req, res) => {
+	res.json({ message: 'auth route' });
+});
 
 router.post('/register', async (req, res) => {
 	const newBootcamper = req.body;
@@ -40,7 +43,22 @@ router.post('/login', async (req, res) => {
 		if (user.rows.length === 0) {
 			return res.status(401).send('E-mail is invalid');
 		}
+
+		const isCorrectPassword = await bcrypt(password, user.rows[0].password);
+		if (!isCorrectPassword) {
+			return res.status(401).json('Invalid Password');
+		}
+		const jwtToken = jwtGenerator(user.rows[0].id);
+		res.json({ jwtToken: jwtToken });
 	} catch (error) {}
 });
 
+router.post('/verify', authorize, (req, res) => {
+	try {
+		res.json(true);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send('Server error');
+	}
+});
 module.exports = router;

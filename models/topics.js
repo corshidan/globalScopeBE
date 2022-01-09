@@ -1,5 +1,5 @@
 const { query } = require('../db/index');
-const removeTimeFromDate = require('../functions/dateFormat');
+const removeTimeFromDate = require('../utils/dateFormat');
 
 async function getAllTopics() {
 	const sqlString = `SELECT topics,created FROM reflections;`;
