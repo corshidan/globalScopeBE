@@ -41,16 +41,17 @@ router.post('/login', async (req, res) => {
 	try {
 		const user = await query('SELECT * FROM bootcampers WHERE email=$1', [email]);
 		if (user.rows.length === 0) {
-			return res.status(401).send('E-mail is invalid');
+			return res.status(401).json('E-mail does not exist');
 		}
-
-		const isCorrectPassword = await bcrypt(password, user.rows[0].password);
+		const isCorrectPassword = await bcrypt.compare(password, user.rows[0].password);
 		if (!isCorrectPassword) {
 			return res.status(401).json('Invalid Password');
 		}
 		const jwtToken = jwtGenerator(user.rows[0].id);
 		res.json({ jwtToken: jwtToken });
-	} catch (error) {}
+	} catch (error) {
+		console.log(error);
+	}
 });
 
 router.post('/verify', authorize, (req, res) => {
