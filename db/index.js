@@ -7,7 +7,6 @@ const pool = new Pool({
 	port: process.env.PGPORT,
 	ssl: { rejectUnauthorized: false },
 });
-// export query function for use in app
 
 module.exports = {
 	query: (text, params, callback) => {
