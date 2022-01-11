@@ -1,5 +1,6 @@
 const { query } = require('../db/index');
 const removeTimeFromDate = require('../utils/dateFormat');
+
 async function getAllBootcampers() {
 	const sqlString = `SELECT * FROM bootcampers;`;
 	try {
@@ -34,6 +35,23 @@ async function getBootcamperByDateCreated(date) {
 	}
 }
 
+async function getBootcamperByDbId(id) {
+	const sqlString = `SELECT * FROM bootcampers WHERE id = $1;`;
+	try {
+		const { rows: data, command } = await query(sqlString, [id]);
+		console.log(command + ' ' + data[0].firstname + ' ' + data[0].lastname);
+		return data.map((item) => {
+			return {
+				...item,
+				startdate: removeTimeFromDate(item.startdate.toISOString()),
+				created: removeTimeFromDate(item.created.toISOString()),
+			};
+		});
+	} catch (err) {
+		console.error(err);
+	}
+}
+
 async function addBootcamper(bootcamper) {
 	const sqlString = `INSERT INTO bootcampers (firstname,lastname,email,password,bootcamperid,frequency,startdate) VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING id;`;
 	try {
@@ -54,4 +72,9 @@ async function addBootcamper(bootcamper) {
 	}
 }
 
-module.exports = { getAllBootcampers, addBootcamper, getBootcamperByDateCreated };
+module.exports = {
+	getAllBootcampers,
+	addBootcamper,
+	getBootcamperByDateCreated,
+	getBootcamperByDbId,
+};

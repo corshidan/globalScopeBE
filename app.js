@@ -6,7 +6,7 @@ const port = process.env.PORT || 5000;
 const bootcamperRouter = require('./routes/bootcampers');
 const reflectionRouter = require('./routes/reflections');
 const topicsRouter = require('./routes/topics');
-const loginRouter = require('./routes/login');
+const dashboardRouter = require('./routes/dashboard');
 const quoteRouter = require('./routes/quotes');
 const authRouter = require('./routes/auth');
 // Middlewares
@@ -19,7 +19,7 @@ app.use(morgan(':method :url :status :response-time ms - :res[content-length]'))
 app.use('/bootcampers', bootcamperRouter);
 app.use('/reflections', reflectionRouter);
 app.use('/topics', topicsRouter);
-app.use('/login', loginRouter);
+app.use('/dashboard', dashboardRouter);
 app.use('/quote', quoteRouter);
 app.use('/auth', authRouter);
 
